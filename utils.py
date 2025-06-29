@@ -18,6 +18,7 @@ OCR_SPACE_API_URL = 'https://api.ocr.space/parse/image'
 together.api_key = os.environ.get('TOGETHER_API_KEY', "d8096e400779ee4adf4fb0e7f3bf97ddc4192a797f09ac54c45cd9856cca04d4")
 
 async def extract_text_from_file(file):
+    # Extract text from various file types (PDF, images, videos)
     contents = await file.read()
     filename = file.filename.lower()
     if filename.endswith('.txt'):
@@ -347,6 +348,7 @@ async def process_video_with_multiple_plates(file, message):
         return f"[Video Processing Error: {str(e)}]"
 
 def llm_respond(message, extracted_text, conversation, api_key=None):
+    # Generate AI response for insurance claim assistance
     # Check if user is done providing information
     if message and user_is_done(message):
         return "Thank you for providing all the information. Let me know if you want a summary report of your claim."
@@ -413,6 +415,7 @@ def llm_respond(message, extracted_text, conversation, api_key=None):
         return f"Sorry, I couldn't process your request. Exception: {e}"
 
 def generate_summary(convo):
+    # Generate insurance claim summary and decision
     summary_prompt = (
         "Given the following conversation between a user and an auto insurance claim assistant, "
         "write a concise summary of the incident, and clearly state whether the insurance claim should be approved or not, and why. "
@@ -466,6 +469,7 @@ def generate_summary(convo):
         return f"[LLM API Exception: {e}]"
 
 def get_chat_history(convo):
+    # Convert conversation to standard tuple format for frontend
     # If conversation is already in the correct format (list of tuples), return it
     if convo and isinstance(convo[0], tuple) and len(convo[0]) == 2:
         return convo

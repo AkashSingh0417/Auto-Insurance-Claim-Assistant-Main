@@ -671,6 +671,7 @@ HTML_TEMPLATE = '''
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    # Main route handling chat interface and file uploads
     user_id = request.form.get('user_id', 'user1')
     message = request.form.get('message', '')
     plate_number = request.form.get('plate_number', '')
@@ -747,6 +748,7 @@ def index():
 
 @app.route('/download_summary', methods=['POST'])
 def download_summary():
+    # Download summary as text file with sensitive data masked
     summary = request.form.get('summary', '')
     if summary:
         summary_text = json.loads(summary) if summary.startswith('"') else summary
@@ -762,7 +764,7 @@ def download_summary():
 
 @app.route('/send_email', methods=['POST'])
 def send_email_route():
-    """Handle email sending request"""
+    """Handle email sending request with masked sensitive data"""
     try:
         email = request.form.get('email')
         summary = request.form.get('summary', '')

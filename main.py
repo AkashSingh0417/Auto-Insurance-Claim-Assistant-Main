@@ -15,6 +15,7 @@ async def interact(
     conversation_history: Optional[str] = Form(None),
     plate_number: Optional[str] = Form(None)
 ):
+    # Main interaction endpoint for chat and file processing
     extracted_text = ''
     if file:
         # Check if this is a plate matching request
@@ -186,6 +187,7 @@ async def extract_vehicle_numbers(
 
 @app.post('/generate_summary')
 async def generate_summary_api(request: Request):
+    # Generate summary from conversation history
     data = await request.json()
     conversation_history = data.get('conversation_history', [])
     if isinstance(conversation_history, str):
