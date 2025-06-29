@@ -160,7 +160,7 @@ The following environment variables are configured in Render:
 5. **Easy Maintenance**: Automatic updates and monitoring
 
 ### Accessing the Deployed Version
-1. Visit [https://auto-insurance-claim-assistant.onrender.com](https://auto-insurance-claim-assistant.onrender.com)
+1. Visit [https://auto-insurance-claim-assistant-hosted-1.onrender.com/](https://auto-insurance-claim-assistant-hosted-1.onrender.com/)
 2. Start using the application immediately
 3. All features are available including:
    - AI-powered chat interface
