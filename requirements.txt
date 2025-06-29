@@ -1,0 +1,18 @@
+fastapi
+uvicorn
+easyocr
+transformers
+openai-whisper
+flask
+requests
+PyPDF2
+opencv-python
+numpy
+imutils
+gunicorn
+python-multipart
+together
+# Note: OpenALPR needs to be installed separately on the system
+# For Windows: Download from https://github.com/openalpr/openalpr/releases
+# For Linux: sudo apt-get install openalpr openalpr-daemon openalpr-utils libopenalpr-dev
+# For macOS: brew install openalpr 

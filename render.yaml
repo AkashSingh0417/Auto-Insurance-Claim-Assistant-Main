@@ -1,0 +1,28 @@
+services:
+  # Flask Web Application
+  - type: web
+    name: dsw3-web
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: BACKEND_URL
+        value: https://dsw3-backend.onrender.com
+
+  # FastAPI Backend
+  - type: web
+    name: dsw3-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: TOGETHER_API_KEY
+        sync: false 
