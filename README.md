@@ -161,8 +161,9 @@ The following environment variables are configured in Render:
 
 ### Accessing the Deployed Version
 1. Visit [https://auto-insurance-claim-assistant-hosted-1.onrender.com/](https://auto-insurance-claim-assistant-hosted-1.onrender.com/)
-2. Start using the application immediately
-3. All features are available including:
+2. **Important**: If the application appears to be loading slowly or shows an error, please wait 5-10 minutes for the server to restart. This is normal behavior for free-tier deployments on Render.
+3. Start using the application immediately once it loads
+4. All features are available including:
    - AI-powered chat interface
    - Document upload and processing
    - License plate detection
